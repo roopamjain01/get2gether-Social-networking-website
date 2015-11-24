@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="design.master.cs" Inherits="design" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Get2gether</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../StyleSheet.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .style1
+        {
+            padding: 0px;
+            width: 1000px;
+            height: auto;
+            margin-right: auto;
+            margin-left: auto;
+            float: left;
+        }
+    </style>
+    </head>
+<body class="container">
+
+    <form id="form1" runat="server">
+    <div class="container">
+        <div class="header">
+             <asp:Image ID="Image1" runat="server" Height="80px" 
+                 ImageUrl="~/images/logo.png" Width="200px" />
+             <div id="menu">
+		<ul>
+			<li><a href="home.aspx" title="">Home</a></li>
+			<li><a href="information.aspx" title="">About Me</a></li>
+			<li><a href="friendlist.aspx" title="">Find Friend</a></li>
+			<li><a href="../deep/index.html" target="_blank">Easy Life</a></li>
+			<li>
+                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click" >Logout</asp:LinkButton>
+            </li>
+		</ul>
+	</div>
+             <br />
+             <br />
+               
+        </div>
+      
+        </div>
+        
+        
+        <div style="background-color: #337fc6" >
+            <br />
+       
+        </div>
+        
+        <div>
+        <div class="contentleft">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderLeft" runat="server">
+            </asp:ContentPlaceHolder>
+        
+        </div>
+        <div class="contentright">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderRight" runat="server">
+            </asp:ContentPlaceHolder>
+        
+        </div>
+        </div>
+        
+        <div class="style1" style="background-color: #337fc6; color: #FFFFFF; font-family: calibri; " 
+        id="footer">
+            &copy Website developed by R Creators.</div>
+    </form>
+</body>
+</html>

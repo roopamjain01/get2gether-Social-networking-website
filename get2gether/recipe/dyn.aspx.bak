@@ -1,0 +1,61 @@
+<%@ Page Language="VB" Debug="true" EnableSessionState="false" %>
+<%@ import Namespace="System.Data" %>
+<%@ import Namespace="System.Data.Oledb" %>
+<%@ import Namespace="System.Web.UI.HtmlControls" %>
+<%@ import Namespace="System.Web.UI.Control" %>
+
+<script runat="server">
+
+PlaceHolder (PlaceHolder1), Button (Button1), Label (Label1) in the WebForm
+
+    Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+			Dim I As Integer, Maximum As Integer
+			Maximum = 10
+			Dim myButton(Maximum) As Button
+			Dim PlaceHolder1 as PlaceHolder
+			 For I = 0 To Maximum - 1
+				   myButton(I) = New Button
+				   myButton(I).Text = "Button - " & Str(I)
+				   myButton(I).ID = "ButtonID" + Str(I)
+				   AddHandler myButton(I).Click, AddressOf Button_Click
+				   PlaceHolder1.Controls.Add(myButton(I))
+			       PlaceHolder1.Controls.Add(New LiteralControl("<p>"))
+			 Next
+    End Sub
+
+    '======================================
+    Sub Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Dim sButton As String = CType(sender, Button).ID
+    Session("MyID") = sButton
+    End Sub
+    '========================================
+    
+	
+
+	Private Sub Button1clk(sender As Object, e As System.EventArgs)
+	    Label1.Text = Session("MyID")
+	End sub
+
+</script>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+<asp:Label cssClass="content2" ID="Label1" runat="server" />
+
+<asp:Button runat="server" Text="Button1" id="Button1" onclick="Button1clk"/>
+
+<asp:PlaceHolder id="PlaceHolder1" runat="server"></asp:PlaceHolder>
+ </BODY>
+</HTML>
+
+
+
